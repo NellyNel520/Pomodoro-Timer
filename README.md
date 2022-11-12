@@ -1,4 +1,4 @@
-# Pomodoro Timer Starter files
+# Pomodoro Timer
 
 Here lies the starter files for the Pomodoro timer tutorial which can be found
 here: https://freshman.tech/pomodoro-timer

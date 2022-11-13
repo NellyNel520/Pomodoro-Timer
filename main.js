@@ -3,6 +3,7 @@ const timer = {
     shortBreak: 5,
     longBreak: 15,
     longBreakInterval: 4,
+    sessions: 0,
   };
 
   let interval;
@@ -41,6 +42,9 @@ function startTimer() {
     let { total } = timer.remainingTime;
     const endTime = Date.parse(new Date()) + total * 1000;
 
+    //sessions property is incremented at the start of a pomodoro session
+    if (timer.mode === 'pomodoro') timer.sessions++;
+
     //button text changes to “stop” and the button becomes depressed like a hardware button
     mainButton.dataset.action = 'stop';
     mainButton.textContent = 'stop';
@@ -53,6 +57,21 @@ function startTimer() {
       total = timer.remainingTime.total;
       if (total <= 0) {
         clearInterval(interval);
+
+        //Once the countdown reaches zero, the switch statement present below causes the app to switch to a new break session or pomodoro session depending on the value of timer.mode.
+        switch (timer.mode) {
+            case 'pomodoro':
+              if (timer.sessions % timer.longBreakInterval === 0) {
+                switchMode('longBreak');
+              } else {
+                switchMode('shortBreak');
+              }
+              break;
+            default:
+              switchMode('pomodoro');
+          }
+    
+          startTimer();
       }
     }, 1000);
   }

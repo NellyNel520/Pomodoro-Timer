@@ -7,11 +7,13 @@ const timer = {
 
   let interval;
 //Buttons that call the start timer function once pressed
-  const mainButton = document.getElementById('js-btn');
+const mainButton = document.getElementById('js-btn');
 mainButton.addEventListener('click', () => {
   const { action } = mainButton.dataset;
   if (action === 'start') {
     startTimer();
+  } else {
+    stopTimer();
   }
 });
 
@@ -99,6 +101,7 @@ function handleMode(event) {
   if (!mode) return;
 
   switchMode(mode);
+  stopTimer();
 }
 document.addEventListener('DOMContentLoaded', () => {
     switchMode('pomodoro');

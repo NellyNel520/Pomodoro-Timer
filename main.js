@@ -5,9 +5,58 @@ const timer = {
     longBreakInterval: 4,
   };
 
+  let interval;
+//Buttons that call the start timer function once pressed
+  const mainButton = document.getElementById('js-btn');
+mainButton.addEventListener('click', () => {
+  const { action } = mainButton.dataset;
+  if (action === 'start') {
+    startTimer();
+  }
+});
+
   const modeButtons = document.querySelector('#js-mode-buttons');
 modeButtons.addEventListener('click', handleMode);
 
+//takes a timestamp argument and finds the difference between the current time and the end time in milliseconds
+function getRemainingTime(endTime) {
+    const currentTime = Date.parse(new Date());
+    const difference = endTime - currentTime;
+  
+    const total = Number.parseInt(difference / 1000, 10);
+    const minutes = Number.parseInt((total / 60) % 60, 10);
+    const seconds = Number.parseInt(total % 60, 10);
+  
+    return {
+      total,
+      minutes,
+      seconds,
+    };
+  }
+
+//Start Timer
+function startTimer() {
+    let { total } = timer.remainingTime;
+    const endTime = Date.parse(new Date()) + total * 1000;
+
+    //button text changes to “stop” and the button becomes depressed like a hardware button
+    mainButton.dataset.action = 'stop';
+    mainButton.textContent = 'stop';
+    mainButton.classList.add('active');
+  
+    interval = setInterval(function() {
+      timer.remainingTime = getRemainingTime(endTime);
+      updateClock();
+  
+      total = timer.remainingTime.total;
+      if (total <= 0) {
+        clearInterval(interval);
+      }
+    }, 1000);
+  }
+
+  //Update Clock function
+  /*how the countdown portion of the application is updated*/
 function updateClock() {
     const { remainingTime } = timer;
     const minutes = `${remainingTime.minutes}`.padStart(2, '0');

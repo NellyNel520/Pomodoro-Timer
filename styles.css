@@ -20,9 +20,9 @@ html {
 }
 
 :root {
-  --pomodoro: hsl(223, 25%, 40%);
-  --shortBreak: hsl(48, 23%, 40%);
-  --longBreak: hsl(105, 16%, 40%);
+  --pomodoro: hsl(224, 74%, 55%);
+  --shortBreak: hsl(57, 91%, 54%);
+  --longBreak: hsl(105, 88%, 50%);
 }
 
 body {
@@ -39,6 +39,15 @@ progress {
   position: fixed;
   top: 0;
 }
+.title{
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  padding-top: 4rem;
+  font-size:x-large;
+  color: #fff;
+  text-shadow: 2px 2px #000000;
+}
+
 
 progress::-webkit-progress-bar {
  background-color: rgba(0, 0, 0, 0.1);;

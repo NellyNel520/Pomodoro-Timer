@@ -55,6 +55,14 @@ function startTimer() {
     }, 1000);
   }
 
+  function stopTimer() {
+    clearInterval(interval);
+  
+    mainButton.dataset.action = 'start';
+    mainButton.textContent = 'start';
+    mainButton.classList.remove('active');
+  }
+
   //Update Clock function
   /*how the countdown portion of the application is updated*/
 function updateClock() {
@@ -92,3 +100,6 @@ function handleMode(event) {
 
   switchMode(mode);
 }
+document.addEventListener('DOMContentLoaded', () => {
+    switchMode('pomodoro');
+  });

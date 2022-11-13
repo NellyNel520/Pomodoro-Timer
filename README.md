@@ -1,29 +1,18 @@
 # Pomodoro Timer
+The Pomodoro Technique is a time management system that encourages people to work with the time they have—rather than against it. 
+Using this method, you break your workday into 25-minute chunks separated by five-minute breaks. These intervals are referred to as pomodoros.
 
-Here lies the starter files for the Pomodoro timer tutorial which can be found
-here: https://freshman.tech/pomodoro-timer
+5 Reasons to Use the Pomodoro Technique
+---
+1. Manage distractions and control your time
+2. Increase accountability
+3. Improve weekly and quarterly planning
+4. Decrease back pain and mental fatigue
+5. Maintain motivation
 
-## Live demo
-
-The completed version of this project is live at
-https://freshman-pomodoro.surge.sh/
-
-## Prerequisites
-
-You must have [Node.js](https://nodejs.org/en/download/) and
-[npm](https://www.npmjs.com/get-npm) installed on your machine. This project was
-built against the following versions:
-
-Node v13.13.0
-npm v6.14.5
-
-## Get started
-
-Clone this repository to your local machine with:
-
-```bash
-$ git clone https://github.com/Freshman-tech/pomodoro-starter-files.git
-```
-
-`cd` into the downloaded directory and follow along with the
-[tutorial](https://freshman.tech/pomodoro-timer/).
+The basic process is as follows:
+---
+*Start a 25-minute timer.
+*Work until the timer rings.
+*Take a short, five minutes break.
+*Every four pomodoros, take a longer break (15 minutes).
